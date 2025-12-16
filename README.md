@@ -110,7 +110,7 @@ SYSTEM_PARAMS = {
 将插件目录放置到 AstrBot 的 plugins 目录下：
 
 ```
-astrbot/data/plugins/astrbot_plugin_group_listener/
+astrbot/data/plugins/astrbot_plugin_yuc_group_monitor/
 ```
 
 重启 AstrBot 即可自动加载插件。
@@ -167,22 +167,22 @@ docker network create qq-monitor-net
 ### 2. 启动NapCat容器
 
 ```bash
-docker run -d --name napcat `
-  --network qq-monitor-net `
-  -p 6099:6099 `
-  --restart=always `
+docker run -d --name napcat \
+  --network qq-monitor-net \
+  -p 6099:6099 \
+  --restart=always \
   mlikiowa/napcat-docker:latest
 ```
 
 ### 3. 启动AstrBot容器
 
 ```bash
-docker run -itd --name astrbot  `
-  --network qq-monitor-net  `
-  --restart=always  `
-  -p 6185:6185  `
-  -p 5000:5000  `
-  -v $PWD/astrbot/data:/AstrBot/data  `
+docker run -itd --name astrbot \
+  --network qq-monitor-net \
+  --restart=always \
+  -p 6185:6185 \
+  -p 5000:5000 \
+  -v $PWD/astrbot/data:/AstrBot/data \
   soulter/astrbot:latest
 ```
 
@@ -283,14 +283,12 @@ platform:
 ```bash
 # Docker环境
 docker start napcat
-
 ```
 
 2. **启动AstrBot**:
 ```bash
 # Docker环境
 docker start astrbot
-
 ```
 
 3. **检查日志**:
@@ -540,5 +538,3 @@ CREATE TABLE group_raw_history (
 ## 许可证
 
 本项目遵循相关开源许可证。
-#   a s t r b o t _ p l u g i n _ y u c _ g r o u p _ m o n i t o r  
- 
